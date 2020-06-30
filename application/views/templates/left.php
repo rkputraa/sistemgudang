@@ -65,7 +65,7 @@
                         <a href="homestokbarang.php" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Kelola Stok Barang</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-puzzle-piece"></i><a href="<?= base_url() ?>kelolabarangmasuk">Barang Masuk</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="homebarangkeluar.php">Barang Keluar</a></li>
+                            <li><i class="fa fa-id-badge"></i><a href="<?= base_url() ?>kelolabarangkeluar">Barang Keluar</a></li>
                             <li><i class="fa fa-puzzle-piece"></i><a href="homebarangretur.php">Barang Retur</a></li>
                         </ul>
                     </li>
