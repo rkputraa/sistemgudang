@@ -30,7 +30,7 @@
                                         <td><?= $brk['nama_barang'];  ?></td>
                                         <td><?= $brk['total_item'];  ?></td>
                                         <td><a class="btn social spotify" href="#">Edit</a>
-                                            <a class="btn social tumblr" href="#">Detail</a>
+                                            <a class="btn social tumblr" href="<?= base_url() ?>kelolabarangkeluar/detail">Detail</a>
                                             <a class="btn social youtube" href="#">Hapus</a>
                                         </td>
                                     </tr>

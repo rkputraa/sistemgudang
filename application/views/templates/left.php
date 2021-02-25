@@ -46,19 +46,88 @@
                     <i class="fa fa-bars"></i>
                 </button>
 
-                <h2 class="navbar-brand"> Menu </h2>
+                <!-- Query Menu -->
+                <?php
 
+                $role_id = $this->session->userdata('role_id');
+
+                $queryMenu = "SELECT `user_menu`.`id`, `menu`
+                            FROM `user_menu` JOIN `user_access_menu` 
+                            ON `user_menu`.`id` = `user_access_menu`.`menu_id`
+                            WHERE `user_access_menu`.`role_id` = $role_id
+                            ORDER BY `user_access_menu`.`menu_id` ASC
+                            ";
+
+                $menu = $this->db->query($queryMenu)->result_array();
+                // var_dump($menu);
+                // die;
+                ?>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active">
-                        <a href="<?= base_url();  ?>"> <i class="menu-icon fa fa-user"></i>User</a>
+                    <?php foreach ($menu as $m) : ?>
+                        <h2 class="navbar-brand"><i class="fa fa-home"></i>Menu <?= $m['menu'] ?></h2>
+
+                        <!-- sub menu -->
+                        <?php
+                        $menuId = $m['id'];
+                        $querySubMenu = "SELECT *
+                                    FROM `user_sub_menu` JOIN `user_menu` 
+                                    ON `user_sub_menu`.`menu_id` = `user_menu`.`id`
+                                    WHERE `user_sub_menu`.`menu_id` = $menuId
+                                    AND `user_sub_menu`.`is_active` = 1
+                                    ";
+
+                        $subMenu = $this->db->query($querySubMenu)->result_array();
+                        ?>
+
+                        <?php foreach ($subMenu as $sm) : ?>
+
+                            <!-- <?php if ($judul == $sm['title']) : ?>
+                                <li class="nav-item active">
+                                <?php else : ?>
+                                <li class="nav-item">
+                                <?php endif; ?> -->
+                            <li class="nav-item active">
+                                <a href="<?= base_url($sm['url']);  ?>"> <i class="<?= $sm['icon']; ?>"></i><?= $sm['title']; ?></a>
+                            </li>
+
+                        <?php endforeach; ?>
+                    <?php endforeach; ?>
+
+
+                    <!-- <li class="active">
+                        <a href="<?= base_url();  ?>kelolauser"> <i class="menu-icon fa fa-users"></i>Kelola Karyawan</a>
                     </li>
                     <li class="active">
-                        <a href="<?= base_url();  ?>kelolauser"> <i class="menu-icon fa fa-users"></i>Kelola User</a>
+                        <a href="<?= base_url();  ?>kelolabarang"> <i class="menu-icon fa fa-columns"></i>Kelola Barang</a>
                     </li>
                     <li class="active">
+                        <a href="<?= base_url();  ?>keloladistributor"> <i class="menu-icon fa fa-truck"></i>Kelola Distributor</a>
+                    </li>
+                    <li class="active">
+                        <a href="<?= base_url();  ?>kelolaunitusaha"> <i class="menu-icon fa fa-home"></i>Kelola Unit Usaha</a>
+                    </li>
+                    <li class="active">
+                        <a href="<?= base_url();  ?>optimasistok"> <i class="menu-icon fa fa-external-link-square"></i>Optimasi Stok</a>
+                    </li>
+                    <li class="active">
+                        <a href="<?= base_url();  ?>laporan"> <i class="menu-icon fa fa-file"></i>Laporan</a>
+                    </li>
+                    <li class="active">
+                        <a href="<?= base_url();  ?>jumlahstok"> <i class="menu-icon fa fa-align-left"></i>Jumlah Stok</a>
+                    </li> -->
+
+
+                    <li class="active">
+                        <a onclick="return confirm('Anda akan keluar, yakin?');" href="<?= base_url();  ?>auth/logout"> <i class="menu-icon fa fa-sign-out"></i>Keluar</a>
+                        <!-- <a class="fa fa-trash-o btn social youtube" onclick="return confirm('Data tidak akan dapat dikembalikan, yakin hapus?');" href="<?= base_url(); ?>kelolaunitusaha/hapus/<?= $un['id_unit']; ?>"></a> -->
+                    </li>
+
+
+
+                    <!-- <li class="active">
                         <a href="homestokbarang.php"> <i class="menu-icon fa fa-table"></i>Data Stock Barang</a>
                     </li>
                     <li class="menu-item-has-children dropdown">
@@ -77,47 +146,12 @@
                     </li>
                     <li class="active">
                         <a href="homekeloladistri.php"> <i class="menu-icon fa fa-table"></i>Kelola Distributor</a>
-                    </li>
-                </ul>
-
-                <!--                    <h3 class="menu-title">Icons</h3>
-
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Icons</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-fort-awesome"></i><a href="../font-fontawesome.html">Font Awesome</a></li>
-                            <li><i class="menu-icon ti-themify-logo"></i><a href="../font-themify.html">Themefy Icons</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="../widgets.html"> <i class="menu-icon ti-email"></i>Widgets </a>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>Charts</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-line-chart"></i><a href="../charts-chartjs.html">Chart JS</a></li>
-                            <li><i class="menu-icon fa fa-area-chart"></i><a href="../charts-flot.html">Flot Chart</a></li>
-                            <li><i class="menu-icon fa fa-pie-chart"></i><a href="../charts-peity.html">Peity Chart</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-area-chart"></i>Maps</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-map-o"></i><a href="../maps-gmap.html">Google Maps</a></li>
-                            <li><i class="menu-icon fa fa-street-view"></i><a href="../maps-vector.html">Vector Maps</a></li>
-                        </ul>
-                    </li>
-                    <h3 class="menu-title">Extras</h3>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Pages</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-sign-in"></i><a href="../page-login.html">Login</a></li>
-                            <li><i class="menu-icon fa fa-sign-in"></i><a href="../page-register.html">Register</a></li>
-                            <li><i class="menu-icon fa fa-paper-plane"></i><a href="../pages-forget.html">Forget Pass</a></li>
-                        </ul>
                     </li> -->
+
+
+
                 </ul>
+
             </div><!-- /.navbar-collapse -->
         </nav>
     </aside><!-- /#left-panel -->

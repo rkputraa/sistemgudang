@@ -4,13 +4,13 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Data</strong> Karyawan
+                        <strong class="card-title">Data</strong> Unit Usaha
                     </div>
                     <?php if ($this->session->flashdata('flash')) : ?>
                         <div class="row-mt-3">
                             <div class="col-sm-12">
                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                    <span class="badge badge-pill badge-success">Selesai</span> Data Karyawan <strong>berhasil</strong> <?= $this->session->flashdata('flash'); ?>
+                                    <span class="badge badge-pill badge-success">Selesai</span> Data Unit Usaha <strong>berhasil</strong> <?= $this->session->flashdata('flash'); ?>
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 </div>
                             </div>
@@ -23,7 +23,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-6">
-                                <a class="btn social twitter" href="<?= base_url(); ?>kelolauser/tambah">Tambah Karyawan</a>
+                                <a class="btn social twitter" href="<?= base_url(); ?>kelolaunitusaha/tambah">Tambah Unit Usaha</a>
                             </div>
                             <div class="col-md-6">
                                 <form class="float-right" action="" method="post">
@@ -39,30 +39,7 @@
                         <br>
                     </div>
 
-                    <!-- <div class="card-body">
-                        <div class="container row-mt-12">
-                            <a class="btn social twitter" href="<?= base_url(); ?>kelolauser/tambah">Tambah Karyawan</a>
-                        </div>
-                        <div>
-                            <br>
-                        </div>
-                        <div class="container row-mt-12">
-                            <div class="row-mt3">
-                                <div class="col-md6">
-                                    <form action="" method="post">
-                                        <div class="input-group mb-12">
-                                            <input type="text" class="form-control" placeholder="Cari Data..." name="keyword">
-                                            <button class="fa fa-search btn social openid " type="submit"></button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <br><br>
-                        </div> -->
-                    <!-- <div class="container"> -->
-                    <?php if (empty($user)) : ?>
+                    <?php if (empty($unit_usaha)) : ?>
                         <div class="col-md-12">
                             <div class="alert alert-danger" role="alert">Data tidak ditemukan</div>
                         </div>
@@ -73,25 +50,27 @@
                             <thead>
                                 <tr>
                                     <th scope="col">No.</th>
-                                    <th scope="col">Id Karyawan</th>
-                                    <th scope="col">Username</th>
-                                    <th scope="col">Nama Karyawan</th>
+                                    <th scope="col">Id Unit Usaha</th>
+                                    <th scope="col">Nama Unit Usaha</th>
+                                    <th scope="col">Alamat Unit Usaha</th>
+                                    <th scope="col">Kontak Unit Usaha</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
                                 $no = 1;
-                                foreach ($user as $usr) : ?>
+                                foreach ($unit_usaha as $un) : ?>
                                     <tr>
                                         <td scope="row"><?= $no++ ?></td>
-                                        <td><?= $usr['id_user'];  ?></td>
-                                        <td><?= $usr['username'];  ?></td>
-                                        <td><?= $usr['nama_user'];  ?></td>
+                                        <td><?= $un['id_unit'];  ?></td>
+                                        <td><?= $un['nama_unit'];  ?></td>
+                                        <td><?= $un['alamat_unit'];  ?></td>
+                                        <td><?= $un['kontak_unit'];  ?></td>
                                         <td>
                                             <div class="btn-group">
-                                                <a class="fa fa-pencil btn social spotify" href="<?= base_url(); ?>kelolauser/edit/<?= $usr['id_user']; ?>"></a>
-                                                <a class="fa fa-trash-o btn social youtube" onclick="return confirm('Data tidak akan dapat dikembalikan, yakin hapus?');" href="<?= base_url(); ?>kelolauser/hapus/<?= $usr['id_user']; ?>"></a>
+                                                <a class="fa fa-pencil btn social spotify" href="<?= base_url(); ?>kelolaunitusaha/edit/<?= $un['id_unit']; ?>"></a>
+                                                <a class="fa fa-trash-o btn social youtube" onclick="return confirm('Data tidak akan dapat dikembalikan, yakin hapus?');" href="<?= base_url(); ?>kelolaunitusaha/hapus/<?= $un['id_unit']; ?>"></a>
                                             </div>
                                         </td>
                                     </tr>

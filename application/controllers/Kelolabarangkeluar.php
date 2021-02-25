@@ -8,7 +8,7 @@ class Kelolabarangkeluar extends CI_Controller
         $this->load->model('Barangkeluar_model');
     }
 
-    public function Index()
+    public function index()
     {
         $data['judul'] = 'Halaman Kelola Barang Keluar';
         $data['barangklr'] = $this->Barangkeluar_model->get_data();
@@ -16,6 +16,16 @@ class Kelolabarangkeluar extends CI_Controller
         $this->load->view('templates/left', $data);
         $this->load->view('templates/right');
         $this->load->view('kelolabarangkeluar/index', $data);
+        $this->load->view('templates/footer');
+    }
+    public function Detail()
+    {
+        $data['judul'] = 'Halaman Detail Barang Keluar';
+        $data['barangklr'] = $this->Barangkeluar_model->get_data();
+
+        $this->load->view('templates/left', $data);
+        $this->load->view('templates/right');
+        $this->load->view('kelolabarangkeluar/detail', $data);
         $this->load->view('templates/footer');
     }
 }

@@ -5,7 +5,7 @@
             <div class="container">
                 <div class="card">
                     <div class="card-header">
-                        <strong>Edit Data</strong> Karyawan
+                        <strong>Edit Data</strong> Admin
                     </div>
                     <div class="card-body">
                         <?php if (validation_errors()) : ?>
