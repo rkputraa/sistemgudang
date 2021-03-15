@@ -6,6 +6,9 @@ class Kelolauser extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        // helper
+        is_logged_in();
+
         $this->load->model('Kelolauser_model');
 
         $this->load->library('form_validation');
@@ -34,10 +37,10 @@ class Kelolauser extends CI_Controller
             // 'distributor' => $this->Keloladistributor_model->getDistributor()
         );
 
-        $this->form_validation->set_rules('id_user', 'Id', 'required|numeric');
-        $this->form_validation->set_rules('username', 'Username', 'required');
-        $this->form_validation->set_rules('password', 'Password', 'required');
-        $this->form_validation->set_rules('nama_user', 'Nama Karyawan', 'required');
+        $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[user.username]');
+        $this->form_validation->set_rules('nama_user', 'Nama', 'required|trim');
+        $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[3]');
+        // $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('templates/left', $data);

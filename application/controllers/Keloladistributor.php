@@ -6,6 +6,10 @@ class Keloladistributor extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+
+        // helper
+        is_logged_in();
+
         $this->load->model('Keloladistributor_model');
 
         $this->load->library('form_validation');
@@ -37,6 +41,8 @@ class Keloladistributor extends CI_Controller
         $this->form_validation->set_rules('nama_distributor', 'Nama', 'required');
         $this->form_validation->set_rules('alamat_distributor', 'Alamat Distributor', 'required');
         $this->form_validation->set_rules('kontak_distributor', 'Kontak Distributor', 'required|numeric');
+        $this->form_validation->set_rules('ordering_cost', 'Ordering Cost', 'required|numeric');
+        $this->form_validation->set_rules('lead_time', 'lead_time', 'required|numeric');
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('templates/left', $data);
@@ -59,6 +65,8 @@ class Keloladistributor extends CI_Controller
         $this->form_validation->set_rules('nama_distributor', 'Nama', 'required');
         $this->form_validation->set_rules('alamat_distributor', 'Alamat Distributor', 'required');
         $this->form_validation->set_rules('kontak_distributor', 'Kontak Distributor', 'required|numeric');
+        $this->form_validation->set_rules('ordering_cost', 'Ordering Cost', 'required|numeric');
+        $this->form_validation->set_rules('lead_time', 'lead_time', 'required|numeric');
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('templates/left', $data);

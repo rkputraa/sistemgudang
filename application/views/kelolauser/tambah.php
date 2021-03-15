@@ -14,12 +14,8 @@
                         <strong>Input</strong> Data Karyawan
                     </div>
                     <div class="card-body">
-                        <form action="<?= base_url('auth/registration'); ?>" method="post">
-                            <div class="form-group">
-                                <label class=" form-control-label" for="id_user">ID Karyawan</label>
-                                <input type="number" name='id_user' class="form-control" id="id_user">
-                                <?= form_error('id_user', '<small class="form-text text-danger">', '</small>') ?>
-                            </div>
+                        <!-- <form action="<?= base_url('auth/registration'); ?>" method="post"> -->
+                        <form action="" method="post">
                             <div class="form-group">
                                 <label class=" form-control-label" for="username">Username</label>
                                 <input type="text" name='username' class="form-control" id="username">
@@ -27,7 +23,7 @@
                             </div>
                             <div class="form-group">
                                 <label class=" form-control-label" for="password">Password</label>
-                                <input type="text" name='password' class="form-control" id="password">
+                                <input type="password" name='password' class="form-control" id="password">
                                 <?= form_error('password', '<small class="form-text text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">

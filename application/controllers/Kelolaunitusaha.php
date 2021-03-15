@@ -6,6 +6,9 @@ class Kelolaunitusaha extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        // helper
+        is_logged_in();
+
         $this->load->model('Kelolaunitusaha_model');
 
         $this->load->library('form_validation');

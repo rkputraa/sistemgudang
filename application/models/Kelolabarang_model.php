@@ -66,10 +66,15 @@ class Kelolabarang_model extends CI_model
         $keyword = $this->input->post('keyword', true);
         $this->db->like('id_barang', $keyword);
         $this->db->or_like('nama_barang', $keyword);
-        $this->db->or_like('id_distributor', $keyword);
+        $this->db->or_like('distributor.id_distributor', $keyword);
         // $this->db->or_like('nama_distributor', $keyword);
         $this->db->or_like('harga_modal', $keyword);
         $this->db->or_like('harga_jual', $keyword);
-        return $this->db->get('barang')->result_array();
+
+        $this->db->select('*');
+        $this->db->from('barang');
+        $this->db->join('distributor', 'barang.id_distributor = distributor.id_distributor');
+        $query = $this->db->get();
+        return $query->result_array();
     }
 }

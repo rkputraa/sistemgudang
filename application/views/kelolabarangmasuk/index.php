@@ -1,4 +1,5 @@
-<?php var_dump($barang_masuk); ?> <div class="content mt-3">
+<!-- <?php var_dump($barang_masuk); ?>  -->
+<div class="content mt-3">
     <div class="animated fadeIn">
         <div class="row">
             <div class="col-lg-12">
@@ -22,14 +23,16 @@
                                     <th scope="col">Nama Distributor</th>
                                     <th scope="col">Jumlah Masuk</th>
                                     <th scope="col">Harga Modal</th>
-                                    <th scope="col">Total_biaya_masuk</th>
+                                    <th scope="col">Total Biaya Masuk</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
-                            <?php foreach ($barang_masuk as $brm) : ?>
-                                <tbody>
+                            <tbody>
+                                <?php
+                                $no = 1;
+                                foreach ($barang_masuk as $brm) : ?>
                                     <tr>
-                                        <td scope="row">1</td>
+                                        <td scope="row"><?= $no++ ?></td>
                                         <td><?= $brm['tanggal'];  ?></td>
                                         <td><?= $brm['id_barang'];  ?></td>
                                         <td><?= $brm['nama_barang'];  ?></td>
@@ -40,13 +43,13 @@
                                         <td><?= $brm['total_biaya_masuk'];  ?></td>
                                         <td>
                                             <div class="btn-group">
-                                                <a class="fa fa-pencil btn social spotify" href="#"></a>
-                                                <a class="fa fa-trash-o btn social youtube" href="#"></a>
+                                                <a class="fa fa-pencil btn social spotify" href="<?= base_url(); ?>kelolabarangmasuk/edit/<?= $brm['id_barang_masuk']; ?>"></a>
+                                                <a class="fa fa-trash-o btn social youtube" onclick="return confirm('Data tidak akan dapat dikembalikan, yakin hapus?');" href="<?= base_url(); ?>kelolabarangmasuk/hapus/<?= $brm['id_barang_masuk']; ?>"></a>
                                             </div>
                                         </td>
                                     </tr>
-                                </tbody>
-                            <?php endforeach; ?>
+                                <?php endforeach; ?>
+                            </tbody>
                         </table>
                     </div>
                 </div>

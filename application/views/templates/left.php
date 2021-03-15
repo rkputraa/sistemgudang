@@ -66,8 +66,11 @@
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
+                    <h2 class="navbar-brand"><i class="fa fa-home"> Menu</i></h2>
                     <?php foreach ($menu as $m) : ?>
-                        <h2 class="navbar-brand"><i class="fa fa-home"></i>Menu <?= $m['menu'] ?></h2>
+
+                        <!-- header menu -->
+                        <!-- <h2 class="navbar-brand"><i class="fa fa-home"></i><?= $m['menu'] ?></h2> -->
 
                         <!-- sub menu -->
                         <?php
@@ -90,7 +93,7 @@
                                 <li class="nav-item">
                                 <?php endif; ?> -->
                             <li class="nav-item active">
-                                <a href="<?= base_url($sm['url']);  ?>"> <i class="<?= $sm['icon']; ?>"></i><?= $sm['title']; ?></a>
+                                <a href="<?= base_url($sm['url']);  ?>"><i class="<?= $sm['icon']; ?>"></i><?= $sm['title']; ?></a>
                             </li>
 
                         <?php endforeach; ?>

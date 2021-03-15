@@ -35,6 +35,16 @@
                                 <input type="text" name='kontak_distributor' class="form-control" id="kontak_distributor">
                                 <?= form_error('kontak_distributor', '<small class="form-text text-danger">', '</small>') ?>
                             </div>
+                            <div class="form-group">
+                                <label class=" form-control-label" for="ordering_cost">Ordering Cost</label>
+                                <input type="number" name='ordering_cost' class="form-control" id="ordering_cost">
+                                <?= form_error('ordering_cost', '<small class="form-text text-danger">', '</small>') ?>
+                            </div>
+                            <div class="form-group">
+                                <label class=" form-control-label" for="lead_time">Lead Time</label>
+                                <input type="number" name='lead_time' class="form-control" id="lead_time">
+                                <?= form_error('lead_time', '<small class="form-text text-danger">', '</small>') ?>
+                            </div>
                             <button type="submit" name="tambah" class="btn social twitter float-right">Tambah Distributor</button><br>
                         </form>
                     </div>

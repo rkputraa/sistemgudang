@@ -9,7 +9,7 @@ class Kelolauser_model extends CI_model
 
     public function getUser()
     {
-        return $this->db->get('user')->result_array();
+        return $this->db->get_where('user', ['role_id' => 2])->result_array();
         // $this->db->select('*');
         // $this->db->from('barang');
         // $this->db->join('distributor', 'barang.id_distributor = distributor.id_distributor');
@@ -20,10 +20,13 @@ class Kelolauser_model extends CI_model
     public function tambahDataUser()
     {
         $data = [
-            "id_user" => $this->input->post('id_user', true),
-            "username" => $this->input->post('username', true),
-            "password" => $this->input->post('password', true),
-            "nama_user" => $this->input->post('nama_user', true),
+            'username' => htmlspecialchars($this->input->post('username', true)),
+            // 'password' => $this->input->post('password'),
+            'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+            'nama_user' => htmlspecialchars($this->input->post('nama_user', true)),
+            'role_id' => 2,
+            'is_active' => 1,
+            'date_created' => time()
         ];
 
         $this->db->insert('user', $data);

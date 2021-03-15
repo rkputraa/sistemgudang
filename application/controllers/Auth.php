@@ -11,6 +11,10 @@ class Auth extends CI_Controller
 
     public function index()
     {
+        if ($this->session->userdata('username')) {
+            redirect('user');
+        }
+
         $this->form_validation->set_rules('username', 'Username', 'required|trim');
         $this->form_validation->set_rules('password', 'Password', 'required|trim');
 
@@ -41,9 +45,9 @@ class Auth extends CI_Controller
                     ];
                     $this->session->set_userdata($data);
                     if ($user['role_id'] == 1) {
-                        redirect('admin');
+                        redirect('kelolauser');
                     } else {
-                        redirect('user');
+                        redirect('kelolabarangmasuk');
                     }
                 } else {
                     $this->session->set_flashdata('flash', '<div class="alert alert-danger alert-dismissible fade show" role="alert">Password salah! </div>');
@@ -61,6 +65,10 @@ class Auth extends CI_Controller
 
     public function registration()
     {
+        if ($this->session->userdata('username')) {
+            redirect('user');
+        }
+
         $this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[user.username]');
         $this->form_validation->set_rules('nama_user', 'Nama', 'required|trim');
         $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[3]|matches[password2]');
@@ -97,5 +105,10 @@ class Auth extends CI_Controller
 
         $this->session->set_flashdata('flash', '<div class="alert alert-warning" role="alert">Anda telah keluar</div>');
         redirect('auth');
+    }
+
+    public function blocked()
+    {
+        $this->load->view('auth/404');
     }
 }

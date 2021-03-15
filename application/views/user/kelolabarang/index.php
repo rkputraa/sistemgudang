@@ -84,7 +84,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
+                                <?php 
                                 $no = 1;
                                 foreach ($barang as $brg) : ?>
                                     <tr>

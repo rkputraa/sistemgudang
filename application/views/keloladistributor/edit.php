@@ -37,6 +37,14 @@
                                 <label class=" form-control-label" for="kontak_distributor">Kontak Distributor</label>
                                 <input type="text" name='kontak_distributor' class="form-control" id="kontak_distributor" value="<?= $distributor['kontak_distributor']; ?>">
                             </div>
+                            <div class="form-group">
+                                <label class=" form-control-label" for="ordering_cost">Ordering Cost</label>
+                                <input type="number" name='ordering_cost' class="form-control" id="ordering_cost" value="<?= $distributor['ordering_cost']; ?>">
+                            </div>
+                            <div class="form-group">
+                                <label class=" form-control-label" for="lead_time">Lead Time</label>
+                                <input type="number" name='lead_time' class="form-control" id="lead_time" value="<?= $distributor['lead_time']; ?>">
+                            </div>
                             <button type="submit" name="tambah" class="btn social twitter float-right">Edit Distributor</button><br>
                         </form>
                     </div>

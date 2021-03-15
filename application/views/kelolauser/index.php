@@ -39,29 +39,6 @@
                         <br>
                     </div>
 
-                    <!-- <div class="card-body">
-                        <div class="container row-mt-12">
-                            <a class="btn social twitter" href="<?= base_url(); ?>kelolauser/tambah">Tambah Karyawan</a>
-                        </div>
-                        <div>
-                            <br>
-                        </div>
-                        <div class="container row-mt-12">
-                            <div class="row-mt3">
-                                <div class="col-md6">
-                                    <form action="" method="post">
-                                        <div class="input-group mb-12">
-                                            <input type="text" class="form-control" placeholder="Cari Data..." name="keyword">
-                                            <button class="fa fa-search btn social openid " type="submit"></button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <br><br>
-                        </div> -->
-                    <!-- <div class="container"> -->
                     <?php if (empty($user)) : ?>
                         <div class="col-md-12">
                             <div class="alert alert-danger" role="alert">Data tidak ditemukan</div>
@@ -73,7 +50,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">No.</th>
-                                    <th scope="col">Id Karyawan</th>
+                                    <!-- <th scope="col">Id Karyawan</th> -->
                                     <th scope="col">Username</th>
                                     <th scope="col">Nama Karyawan</th>
                                     <th scope="col">Aksi</th>
@@ -85,7 +62,7 @@
                                 foreach ($user as $usr) : ?>
                                     <tr>
                                         <td scope="row"><?= $no++ ?></td>
-                                        <td><?= $usr['id_user'];  ?></td>
+                                        <!-- <td><?= $usr['id_user'];  ?></td> -->
                                         <td><?= $usr['username'];  ?></td>
                                         <td><?= $usr['nama_user'];  ?></td>
                                         <td>

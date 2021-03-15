@@ -5,6 +5,11 @@ class Keloladistributor_model extends CI_model
     public function getDistributor()
     {
         return $this->db->get('distributor')->result_array();
+        // $this->db->select('*');
+        // $this->db->from('distributor');
+        // $this->db->join('barang', 'distributor.id_distributor = barang.id_distributor');
+        // $query = $this->db->get();
+        // return $query->result_array();
     }
 
     public function tambahDataDistributor()
@@ -14,6 +19,8 @@ class Keloladistributor_model extends CI_model
             "nama_distributor" => $this->input->post('nama_distributor', true),
             "alamat_distributor" => $this->input->post('alamat_distributor', true),
             "kontak_distributor" => $this->input->post('kontak_distributor', true),
+            "ordering_cost" => $this->input->post('ordering_cost', true),
+            "lead_time" => $this->input->post('lead_time', true),
         ];
 
         $this->db->insert('distributor', $data);
@@ -44,6 +51,8 @@ class Keloladistributor_model extends CI_model
             "nama_distributor" => $this->input->post('nama_distributor', true),
             "alamat_distributor" => $this->input->post('alamat_distributor', true),
             "kontak_distributor" => $this->input->post('kontak_distributor', true),
+            "ordering_cost" => $this->input->post('ordering_cost', true),
+            "lead_time" => $this->input->post('lead_time', true),
         ];
 
         $this->db->where('id_distributor', $this->input->post('id_distributor'));
@@ -64,10 +73,9 @@ class Keloladistributor_model extends CI_model
         $this->db->or_like('nama_distributor', $keyword);
         $this->db->or_like('alamat_distributor', $keyword);
         $this->db->or_like('kontak_distributor', $keyword);
-        // $this->db->or_like('id_distributor', $keyword);
-        // $this->db->or_like('nama_distributor', $keyword);
-        // $this->db->or_like('harga_modal', $keyword);
-        // $this->db->or_like('harga_jual', $keyword);
+        $this->db->or_like('ordering_cost', $keyword);
+        $this->db->or_like('lead_time', $keyword);
+
         return $this->db->get('distributor')->result_array();
     }
 }

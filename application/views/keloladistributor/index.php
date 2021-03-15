@@ -76,6 +76,8 @@
                                 <th scope="col">Nama Distributor</th>
                                 <th scope="col">Alamat Distributor</th>
                                 <th scope="col">Kontak Distributor</th>
+                                <th scope="col">Ordering Cost</th>
+                                <th scope="col">Lead Time</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
@@ -89,6 +91,8 @@
                                     <td><?= $di['nama_distributor'];  ?></td>
                                     <td><?= $di['alamat_distributor'];  ?></td>
                                     <td><?= $di['kontak_distributor'];  ?></td>
+                                    <td><?= $di['ordering_cost'];  ?></td>
+                                    <td><?= $di['lead_time'];  ?></td>
                                     <td>
                                         <div class="btn-group">
                                             <a class="fa fa-pencil btn social spotify" href="<?= base_url(); ?>keloladistributor/edit/<?= $di['id_distributor']; ?>"></a>

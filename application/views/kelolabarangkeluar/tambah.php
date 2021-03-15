@@ -2,7 +2,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1><strong>Tambah</strong> Barang Masuk</h1>
+                <h1><strong>Tambah</strong> Barang Keluar</h1>
             </div>
         </div>
     </div>
@@ -16,9 +16,9 @@
                     <div class="card-body">
                         <form action="" method="post">
                             <div class="form-group">
-                                <label class=" form-control-label" for="id_barang_masuk">ID Barang Masuk</label>
-                                <input type="number" name='id_barang_masuk' class="form-control" id="id_barang_masuk">
-                                <?= form_error('id_barang_masuk', '<small class="form-text text-danger">', '</small>') ?>
+                                <label class=" form-control-label" for="id_barang_keluar">ID Barang Keluar</label>
+                                <input type="number" name='id_barang_keluar' class="form-control" id="id_barang_keluar">
+                                <?= form_error('id_barang_keluar', '<small class="form-text text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">
                                 <label class=" form-control-label" for="tanggal">Tanggal</label>
@@ -46,9 +46,9 @@
                                 <?= form_error('id_distributor', '<small class="form-text text-danger">', '</small>') ?>
                             </div>
                             <div class="form-group">
-                                <label class=" form-control-label" for="jumlah_masuk">Jumlah Masuk</label>
-                                <input type="number" name='jumlah_masuk' class="form-control" id="jumlah_masuk">
-                                <?= form_error('jumlah_masuk', '<small class="form-text text-danger">', '</small>') ?>
+                                <label class=" form-control-label" for="jumlah_keluar">Jumlah Keluar</label>
+                                <input type="number" name='jumlah_keluar' class="form-control" id="jumlah_keluar">
+                                <?= form_error('jumlah_keluar', '<small class="form-text text-danger">', '</small>') ?>
                             </div>
 
                             <!-- <div class="form-group">
@@ -70,9 +70,9 @@
                             </div>
 
                             <div class="form-group">
-                                <label class=" form-control-label" for="total_biaya_masuk">Total Biaya Masuk</label>
-                                <input type="number" name='total_biaya_masuk' class="form-control" id="total_biaya_masuk">
-                                <?= form_error('total_biaya_masuk', '<small class="form-text text-danger">', '</small>') ?>
+                                <label class=" form-control-label" for="total_biaya_keluar">Total Biaya Keluar</label>
+                                <input type="number" name='total_biaya_keluar' class="form-control" id="total_biaya_keluar">
+                                <?= form_error('total_biaya_keluar', '<small class="form-text text-danger">', '</small>') ?>
                             </div>
                             <button type="submit" name="tambah" class="btn social twitter float-right">Tambah</button><br>
                         </form>
